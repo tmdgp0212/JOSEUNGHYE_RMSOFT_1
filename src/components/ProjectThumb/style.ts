@@ -1,12 +1,13 @@
 import { styled } from "styled-components";
+import { motion } from "framer-motion";
 
-export const Thumbnail = styled.div<{ id: string }>`
+export const Thumbnail = styled(motion.div)<{ id: string }>`
   display: flex;
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  width: 240px;
-  height: 135px;
+  width: 220px;
+  height: 125px;
   background-color: #eee;
   border-radius: 5px;
 

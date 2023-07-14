@@ -47,8 +47,8 @@ function AnimatedCursor({
   outerAlpha = 0.4,
   innerSize = 8,
   outerSize = 8,
-  outerScale = 5,
-  innerScale = 0.7,
+  outerScale = 4,
+  innerScale = 0.8,
 }: AnimatedCursorProps) {
   const cursorOuterRef = useRef<HTMLDivElement>(null);
   const cursorInnerRef = useRef<HTMLDivElement>(null);
@@ -140,7 +140,7 @@ function AnimatedCursor({
 
   useEffect(() => {
     const clickables = document.querySelectorAll(
-      'a, input[type="submit"], input[type="image"], label[for], select, button, .link'
+      'a, input[type="submit"], input[type="image"], label[for], select, button, .link, .pointer'
     );
 
     Array.from(clickables).forEach((el) => {
@@ -230,6 +230,7 @@ function AnimatedCursor({
           height: outerSize,
           backgroundColor: `rgba(${color}, ${outerAlpha})`,
           transition: "opacity 0.15s ease-in-out, transform 0.15s ease-in-out",
+          zIndex: 999,
         }}
       />
       <div
@@ -242,6 +243,7 @@ function AnimatedCursor({
           pointerEvents: "none",
           backgroundColor: `rgba(${color}, 1)`,
           transition: "opacity 0.15s ease-in-out, transform 0.25s ease-in-out",
+          zIndex: 999,
         }}
       />
     </>

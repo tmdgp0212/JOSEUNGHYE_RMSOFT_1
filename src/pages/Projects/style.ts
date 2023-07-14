@@ -2,10 +2,18 @@ import { styled } from "styled-components";
 import { PageContainer } from "../../style/Container";
 
 export const ProjectsContainer = styled(PageContainer)`
-  gap: 180px;
-`;
+  gap: 10%;
 
-export const ContentBox = styled.div``;
+  @media (max-width: 1080px) {
+    gap: 5%;
+  }
+
+  .toy {
+    @media (max-width: 960px) {
+      margin-top: 48px;
+    }
+  }
+`;
 
 export const ContentTitle = styled.h2`
   margin-bottom: 30px;
@@ -18,11 +26,4 @@ export const ProjectList = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-
-  .test {
-    width: 215px;
-    height: 115px;
-    background-color: #eee;
-    border-radius: 5px;
-  }
 `;
