@@ -1,72 +1,83 @@
 import * as S from "./style";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Profile = () => {
   return (
     <S.ProfileContainer>
-      <AnimatePresence>
-        <S.Card>
-          <S.Name>
-            <h1>조승혜</h1>
-            <p className="job">Frontend Developer</p>
-          </S.Name>
-          <S.Info>
-            <p className="mobile">
-              <span className="category">M.</span>
-              <span>010.5390.3029</span>
-            </p>
-            <p className="birth">
-              <span className="category">B.</span>
-              <span>1995. 02. 12</span>
-            </p>
+      <S.Card>
+        <S.Name>
+          <h1>조승혜</h1>
+          <p className="job">Frontend Developer</p>
+        </S.Name>
+        <S.Info>
+          <p className="mobile">
+            <span className="category">M.</span>
+            <span>010.5390.3029</span>
+          </p>
+          <p className="birth">
+            <span className="category">B.</span>
+            <span>1995. 02. 12</span>
+          </p>
 
-            <p className="email">
-              <span className="category">E.</span>
-              <span>tmdgp0212@naver.com</span>
-            </p>
-            <p className="address">
-              <span>서울특별시 관악구 봉천동 국회단지 18길</span>
-            </p>
-          </S.Info>
-          <motion.div
-            className="line row top"
-            initial={{ opacity: 0, right: 50 }}
-            animate={{ opacity: 1, right: -25 }}
-            transition={{
-              delay: 0.1,
-              duration: 1.5,
-            }}
-          ></motion.div>
-          <motion.div
-            className="line row bottom"
-            initial={{ opacity: 0, left: 50 }}
-            animate={{ opacity: 1, left: -25 }}
-            transition={{
-              delay: 0.1,
-              duration: 1.5,
-            }}
-          ></motion.div>
-          <motion.div
-            className="line column right"
-            initial={{ opacity: 0, top: 50 }}
-            animate={{ opacity: 1, top: -25 }}
-            transition={{
-              delay: 0.1,
-              duration: 1.5,
-            }}
-          ></motion.div>
-          <motion.div
-            className="line column left"
-            initial={{ opacity: 0, bottom: 50 }}
-            animate={{ opacity: 1, bottom: -25 }}
-            transition={{
-              delay: 0.1,
-              duration: 1.5,
-            }}
-          ></motion.div>
-        </S.Card>
-      </AnimatePresence>
-      <S.Stack>
+          <p className="email">
+            <span className="category">E.</span>
+            <span>tmdgp0212@naver.com</span>
+          </p>
+          <p className="address">
+            <span>서울특별시 관악구 봉천동 국회단지 18길</span>
+          </p>
+        </S.Info>
+        <motion.div
+          className="line row top"
+          initial={{ opacity: 0, right: 50 }}
+          animate={{ opacity: 1, right: -25 }}
+          transition={{
+            delay: 0.1,
+            duration: 1.5,
+          }}
+        ></motion.div>
+        <motion.div
+          className="line row bottom"
+          initial={{ opacity: 0, left: 50 }}
+          animate={{ opacity: 1, left: -25 }}
+          transition={{
+            delay: 0.1,
+            duration: 1.5,
+          }}
+        ></motion.div>
+        <motion.div
+          className="line column right"
+          initial={{ opacity: 0, top: 50 }}
+          animate={{ opacity: 1, top: -25 }}
+          transition={{
+            delay: 0.1,
+            duration: 1.5,
+          }}
+        ></motion.div>
+        <motion.div
+          className="line column left"
+          initial={{ opacity: 0, bottom: 50 }}
+          animate={{ opacity: 1, bottom: -25 }}
+          transition={{
+            delay: 0.1,
+            duration: 1.5,
+          }}
+        ></motion.div>
+      </S.Card>
+      <S.Stack
+        initial={{
+          opacity: 0,
+          y: -20,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 1.5,
+          delay: 0.8,
+        }}
+      >
         <S.Item>
           <div className="category">Language</div>
           <ul>

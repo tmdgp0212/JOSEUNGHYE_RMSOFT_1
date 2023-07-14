@@ -34,7 +34,7 @@ export const Thumbnail = styled(motion.div)<{ id: string }>`
     background-image: ${({ id }) => `url("/${id}.gif")`};
 
     .filter {
-      opacity: 0.4;
+      opacity: 0.5;
     }
 
     .title {

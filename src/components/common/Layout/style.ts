@@ -5,7 +5,6 @@ export const TopBar = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-  z-index: 5;
 
   .container {
     display: flex;

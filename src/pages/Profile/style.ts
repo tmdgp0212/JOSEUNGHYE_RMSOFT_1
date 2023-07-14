@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { PageContainer } from "../../style/Container";
+import { motion } from "framer-motion";
 
 export const ProfileContainer = styled(PageContainer)`
   gap: 100px;
@@ -77,7 +78,7 @@ export const Info = styled.div`
   }
 `;
 
-export const Stack = styled.div`
+export const Stack = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 15px;
