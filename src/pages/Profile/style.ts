@@ -1,15 +1,8 @@
 import { styled } from "styled-components";
+import { PageContainer } from "../../style/Container";
 
-export const ProfileContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const ProfileContainer = styled(PageContainer)`
   gap: 100px;
-  margin: 0 auto;
-  width: 100vw;
-  max-width: 1400px;
-  min-height: 100vh;
-  color: #fff;
   line-height: 1.6;
 `;
 

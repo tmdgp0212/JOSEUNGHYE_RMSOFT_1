@@ -43,6 +43,7 @@ body {
 	min-height: 100vh;
 	color: #222;
 	font-family: 'Pretendard-Regular';
+	color: #fff;
 	line-height: 1.2;
 	cursor: none;
 	background-color: hsl(0, 0%, 18%);
