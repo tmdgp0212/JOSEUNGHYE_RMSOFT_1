@@ -17,7 +17,7 @@ export const ModalContainer = styled(motion.div)`
 export const Modal = styled(motion.div)`
   display: flex;
   gap: 25px;
-  padding: 25px;
+  padding: 10px;
   width: 920px;
   background-color: #2e2e2e;
   border-radius: 5px;
@@ -29,7 +29,10 @@ export const Modal = styled(motion.div)`
 `;
 
 export const Thumbnail = styled.div`
+  padding: 25px;
+  padding-right: 0;
   width: 400px;
+  flex-shrink: 0;
 
   @media (max-width: 960px) {
     display: none;
@@ -42,6 +45,25 @@ export const Thumbnail = styled.div`
 `;
 
 export const Detail = styled.div`
+  overflow: auto;
+  padding: 25px;
+  min-height: 300px;
+  max-height: 80vh;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color01);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
   .title {
     margin-bottom: 20px;
     font-size: 22px;
@@ -57,6 +79,7 @@ export const Detail = styled.div`
     line-height: 1.6;
 
     .category {
+      flex-shrink: 0;
       margin-right: 8px;
       width: 80px;
     }
@@ -70,6 +93,7 @@ export const Detail = styled.div`
 
   .summary {
     margin: 20px 0 10px;
+    white-space: pre-wrap;
 
     .category {
       margin-bottom: 8px;
