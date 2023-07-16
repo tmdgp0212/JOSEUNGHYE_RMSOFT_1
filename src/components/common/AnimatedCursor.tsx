@@ -1,9 +1,14 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 
-type Handler = (event: unknown) => void;
+type Handler = (event: MouseEvent) => void;
 
 function useEventListener(
-  eventName: string,
+  eventName:
+    | "mousemove"
+    | "mousedown"
+    | "mouseup"
+    | "mouseenter"
+    | "mouseleave",
   handler: Handler,
   element = document
 ) {
@@ -17,7 +22,9 @@ function useEventListener(
     const isSupported = element && element.addEventListener.bind(element);
     if (!isSupported) return;
 
-    const eventListener = (event: unknown) => savedHandler.current?.(event);
+    function eventListener(event: MouseEvent) {
+      savedHandler.current?.(event);
+    }
 
     element.addEventListener(eventName, eventListener);
 
@@ -64,18 +71,21 @@ function AnimatedCursor({
   const endX = useRef(0);
   const endY = useRef(0);
 
-  const onMouseMove = useCallback(({ clientX, clientY }) => {
-    const X = clientX as number;
-    const Y = clientY as number;
+  const onMouseMove = useCallback(
+    ({ clientX, clientY }: { clientX: any; clientY: any }) => {
+      const X = clientX as number;
+      const Y = clientY as number;
 
-    setCoords({ x: X, y: Y });
-    if (cursorInnerRef.current) {
-      cursorInnerRef.current.style.top = `${Y}px`;
-      cursorInnerRef.current.style.left = `${X}px`;
-    }
-    endX.current = X;
-    endY.current = Y;
-  }, []);
+      setCoords({ x: X, y: Y });
+      if (cursorInnerRef.current) {
+        cursorInnerRef.current.style.top = `${Y}px`;
+        cursorInnerRef.current.style.left = `${X}px`;
+      }
+      endX.current = X;
+      endY.current = Y;
+    },
+    []
+  );
 
   const animateOuterCursor = useCallback(
     (time: number) => {
@@ -189,34 +199,6 @@ function AnimatedCursor({
       });
     };
   }, [isActive]);
-
-  const styles = {
-    cursor: {
-      zIndex: 999,
-      position: "fixed",
-      opacity: 1,
-      pointerEvents: "none",
-      transition: "opacity 0.15s ease-in-out, transform 0.15s ease-in-out",
-    },
-    cursorInner: {
-      position: "fixed",
-      borderRadius: "50%",
-      width: innerSize,
-      height: innerSize,
-      pointerEvents: "none",
-      backgroundColor: `rgba(${color}, 1)`,
-      transition: "opacity 0.15s ease-in-out, transform 0.25s ease-in-out",
-    },
-    cursorOuter: {
-      position: "fixed",
-      borderRadius: "50%",
-      pointerEvents: "none",
-      width: outerSize,
-      height: outerSize,
-      backgroundColor: `rgba(${color}, ${outerAlpha})`,
-      transition: "opacity 0.15s ease-in-out, transform 0.15s ease-in-out",
-    },
-  };
 
   return (
     <>

@@ -1,6 +1,5 @@
 import * as S from "./style";
 import CardContainer from "../../components/common/CardContainer";
-import { motion } from "framer-motion";
 
 const Profile = () => {
   return (
