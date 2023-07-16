@@ -1,6 +1,7 @@
 import { projectDetail } from "../../constants/projectDetail";
-import * as S from "./style";
 import { AnimatePresence } from "framer-motion";
+import { BsGithub, BsLink45Deg } from "react-icons/bs";
+import * as S from "./style";
 
 interface ModalProps {
   id: string;
@@ -10,18 +11,29 @@ interface ModalProps {
 const ProjectModal = ({ id, setIsOpen }: ModalProps) => {
   const project = projectDetail.find((project) => project.id === id);
 
+  const closeModal = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <AnimatePresence>
-      <S.ModalContainer
-        onClick={() => {
-          setIsOpen(false);
-        }}
-      >
+      <S.ModalContainer onClick={closeModal}>
         <S.Modal layoutId={id}>
           <S.Thumbnail>
+            <div className="preview">preview</div>
             <img src={`/${id}.gif`} alt={id} />
           </S.Thumbnail>
           <S.Detail>
+            <div className="links">
+              <a href={project?.demoSite} target="_blank" className="demo">
+                <BsLink45Deg />
+              </a>
+              <a href={project?.github} target="_blank" className="github">
+                <BsGithub />
+              </a>
+            </div>
             <div className="title">{project?.name}</div>
             <div className="row">
               <div className="category">작업인원</div>

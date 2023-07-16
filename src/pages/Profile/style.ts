@@ -9,43 +9,8 @@ export const ProfileContainer = styled(PageContainer)`
 
 export const Card = styled.div`
   display: flex;
-  position: relative;
   flex-direction: column;
   gap: 25px;
-  padding: 30px 40px;
-
-  .line {
-    position: absolute;
-    background-color: #fff;
-
-    &.row {
-      height: 1px;
-      width: 200px;
-
-      &.top {
-        top: 0;
-        right: -20px;
-      }
-      &.bottom {
-        bottom: 0;
-        left: -20px;
-      }
-    }
-
-    &.column {
-      width: 1px;
-      height: 200px;
-
-      &.left {
-        bottom: -20px;
-        left: 0;
-      }
-      &.right {
-        top: -20px;
-        right: 0;
-      }
-    }
-  }
 `;
 
 export const Name = styled.div`
@@ -88,7 +53,7 @@ export const Stack = styled(motion.div)`
 
 export const Item = styled.div`
   .category {
-    color: #7e7e7e;
+    color: var(--color02);
     font-weight: 600;
   }
 

@@ -9,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 :root {
-	--color01: #FF4040
+	--color01: #FF4040;
+	--color02: #7e7e7e;
 }
 
 html, body, div, span, applet, object, iframe,

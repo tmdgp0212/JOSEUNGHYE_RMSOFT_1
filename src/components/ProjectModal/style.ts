@@ -12,6 +12,7 @@ export const ModalContainer = styled(motion.div)`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(1px);
+  z-index: 10;
 `;
 
 export const Modal = styled(motion.div)`
@@ -38,6 +39,12 @@ export const Thumbnail = styled.div`
     display: none;
   }
 
+  .preview {
+    margin-bottom: 15px;
+    color: var(--color02);
+    text-align: center;
+  }
+
   img {
     width: 100%;
     border-radius: 5px;
@@ -46,6 +53,7 @@ export const Thumbnail = styled.div`
 
 export const Detail = styled.div`
   overflow: auto;
+  position: relative;
   padding: 25px;
   min-height: 300px;
   max-height: 80vh;
@@ -64,6 +72,24 @@ export const Detail = styled.div`
     background-color: transparent;
   }
 
+  .links {
+    display: flex;
+    gap: 18px;
+    position: absolute;
+    right: 30px;
+
+    a {
+      display: block;
+      font-size: 24px;
+      cursor: none;
+
+      &.demo {
+      }
+      &.github {
+      }
+    }
+  }
+
   .title {
     margin-bottom: 20px;
     font-size: 22px;
@@ -71,7 +97,7 @@ export const Detail = styled.div`
   }
 
   .category {
-    color: #7e7e7e;
+    color: var(--color02);
   }
 
   .row {
